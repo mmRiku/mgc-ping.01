@@ -2,12 +2,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 import axios from "axios";
 
-console.log("Environment Variables Loaded:", process.env.RENDER_LINK, process.env.RENDER_API_KEY);
+//console.log("Environment Variables Loaded:", process.env.RENDER_LINK, process.env.RENDER_API_KEY);
 
 export async function pingBackend(tries = 0) {
   try {
     let link_ping = `https://${process.env.RENDER_LINK}/dashboard/test`;
-    console.log(link_ping);
+    //console.log(link_ping);
     const response = await axios.get(link_ping, {
       headers: {
         'Authorization': `Bearer ${process.env.RENDER_API_KEY}`
