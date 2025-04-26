@@ -33,3 +33,5 @@ export async function pingBackend(tries = 0) {
     await new Promise(resolve => setTimeout(resolve, 10 * 60 * 1000));
   }
 })();
+
+//sdf
