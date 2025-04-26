@@ -17,7 +17,7 @@ export default function handler(req, res) {
         console.error('Background ping failed:', error);
         setLatestPingMessage('Ping failed');
       }
-    }, 20000); // every 10 minutes
+    }, 5 * 60 * 1000); // every 10 minutes
   }
 
   res.status(200).json({ message: 'Background ping started' });

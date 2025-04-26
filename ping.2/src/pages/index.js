@@ -16,6 +16,19 @@ export default function Home() {
   const [apiStatus, setApiStatus] = useState('Checking...');
 
   useEffect(() => {
+    const pingStatus = async () => {
+      try {
+        await fetch('/api/background');
+      } catch (error) {
+      }
+    };
+
+    pingStatus();
+    const interval = setInterval(pingStatus, 1000 * 60 * 5); // Refresh every 1 minute
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
     const fetchStatus = async () => {
       try {
         const response = await fetch('/api/status');
